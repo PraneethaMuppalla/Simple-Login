@@ -20,7 +20,7 @@ const passwordReducer = (state, action) => {
   }
   return { value: "", isvalid: false };
 };
-
+//start of component
 const Login = (props) => {
   const [formIsValid, setFormIsValid] = useState(false);
   const [emailState, dispatchEmail] = useReducer(emailReducer, {
@@ -45,8 +45,7 @@ const Login = (props) => {
     });
   };
   useEffect(() => {
-    console.log("hit");
-    setFormIsValid(emailState.isvalid, passwordState.isvalid);
+    setFormIsValid(emailState.isvalid && passwordState.isvalid);
   }, [emailState.isvalid, passwordState.isvalid]);
 
   const submitHandler = (event) => {
